@@ -1,6 +1,6 @@
 ## READ.ME:
 
-Services and Functionality
+Services and Functionality:
 
 This dash board project implements a series of Node.js services designed to process data from the HubSpot API (version 5). It focuses on contact data manipulation and analysis, demonstrating key functionalities and their potential business impact includes:
 
