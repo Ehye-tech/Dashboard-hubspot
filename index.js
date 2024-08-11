@@ -1,12 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const {getAllContacts} = require("./service/contactService");
-const {
-    getDomain,
-    filterDomain,
-    compareTimeStamps,
-    convertTimetoUnix,
-} = require('./service/utilService');
+const {compareTimeStamps}  = require("./service/TimeService")
 
 // Setting for running server
 dotenv.config();

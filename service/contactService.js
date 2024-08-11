@@ -1,14 +1,36 @@
-const {
-  getDomain,
-  filterDomain,
-  compareTimeStamps,
-  convertTimetoUnix,
-} = require("./utilService");
 const axios = require("axios");
 const dotenv = require("dotenv");
 
 // Setting for running server
 dotenv.config();
+
+function getDomain(email) {
+  const domainRegex = /@([^.]+)\.[^.]+$/;
+  const match = domainRegex.exec(email);
+  return match ? match[1] : "";
+}
+
+function filterDomain(email, key, obj) {
+  domainMap = {}
+  domainMap[key] = domainMap[key] || [];
+  domainMap[key].push(obj);
+  return domainMap
+}
+
+function convertTimetoUnix(dateString) {
+  // Create a Date object from the string
+  const dateObject = new Date(dateString);
+
+  // Convert the Date object to a Unix timestamp (milliseconds)
+  return dateObject.getTime();
+}
+
+module.exports = {
+  getDomain,
+  filterDomain,
+  convertTimetoUnix,
+};
+
 
 const header = {
   Authorization: `Bearer ${process.env.AUTH_TOKEN}`,
@@ -17,13 +39,17 @@ const header = {
 
 async function getAllContacts() {
   try {
-    const domainMap = {};
+    const endPoint = `${process.env.ENDPOINT}${process.env.CONTACT_PATH}`
+    // console.log(`[getAllContacts func]: endPoint: ${endPoint}`)
+    let domainMap = {};
     const res = await axios.get(
-      `${process.env.ENDPOINT}/${process.env.CONTACT_PATH}`,
+      `${endPoint}`,
       {
         headers: header,
       }
     );
+    // console.log(`[getAllContacts func]: res: ${res}`)
+    
     const result = res.data.results;
     result.forEach((element) => {
       element.timeStamp = convertTimetoUnix(element.createdAt);
@@ -37,11 +63,11 @@ async function getAllContacts() {
       };
 
       const domain = getDomain(element.properties.email);
-      filterDomain(domainMap, element.properties.email, domain, obj);
+      domainMap = filterDomain(element.properties.email, domain, obj);
     });
     return domainMap;
   } catch (error) {
-    console.error("[Contact Service ERROR]:", error);
+    console.error("[Contact Service - getAllContacts] ERROR:", error);
     return []; // Handle error by returning an empty array
   }
 }
