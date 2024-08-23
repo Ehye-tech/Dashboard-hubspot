@@ -4,9 +4,10 @@ Services and Functionality:
 
 This dash board project implements a series of Node.js services designed to process data from the HubSpot API (version 5). It focuses on contact data manipulation and analysis, demonstrating key functionalities and their potential business impact includes:
 
-Improve decision-making: Provide visual insights into contact data, enabling data-driven decisions.
+1. Improve decision-making: Provide visual insights into contact data, enabling data-driven decisions by customizing mapping user's data in unique way.
 Increase efficiency: Quickly identify trends and patterns in contact data, saving time and resources.
-Enhance collaboration: Share insights with team members through a centralized dashboard.
+
+2. Enhance collaboration: Share insights with team members through a centralized dashboard.
 Demonstrate value: Showcase the capabilities of your data processing service and its impact on the business.
 
 **Services:**
