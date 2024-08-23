@@ -10,18 +10,6 @@ Increase efficiency: Quickly identify trends and patterns in contact data, savin
 2. Enhance collaboration: Share insights with team members through a centralized dashboard.
 Demonstrate value: Showcase the capabilities of your data processing service and its impact on the business.
 
-**Functionality:**
-
-* **Contact Data Retrieval:** The code fetches contact data from HubSpot, providing access to information such as email addresses, timestamps, and other contact details.
-* **Contact Grouping:** Contacts are grouped based on the proximity of their timestamps. This functionality is used to identify bursts of contact activity in user engagement.
-* **Email Domain Analysis:** The code extract domain names from email addresses and filter contacts by domain. This allows for analysis of user demographics and targeted marketing efforts based on domain affiliation.
-
-**Business Impact:**
-
-* **Improved Data Insights:** By processing and grouping contact data based on timestamps, this service can help businesses identify patterns in user behavior and engagement. This can lead to better marketing strategies, product development decisions, and customer service initiatives.
-* **Targeted Marketing:** Email domain analysis is used to segment marketing campaigns and target specific user groups based on their domain affiliation. 
-* **Automated Data Processing:** The services is integrated into an automated workflow to continuously analyze contact data, providing real-time insights without manual effort.
-
 **Services:**
 
 * **Contact Service (contactService.js):**
