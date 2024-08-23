@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bangbang Data Visualization</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h1>Bangbang Data</h1>
+  <div id="chart-container">
+    <canvas id="myChart"></canvas>
+  </div>
+  <script>
+    // Assuming you have a function to fetch your data
+    fetchData().then(data => {
+      const durations = data.bangbang.map(item => item.duration);
+
+      // Create the chart
+      const ctx = document.getElementById('myChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: durations.map(duration => `Duration ${duration}ms`), // Create labels based on durations
+          datasets: [{
+            label: 'Durations',
+            data: durations,
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

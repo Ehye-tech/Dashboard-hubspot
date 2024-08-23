@@ -7,12 +7,8 @@ dotenv.config();
 const port = process.env.PORT || 3030;
 const app = express();
 
-app.get('/contacts',async (req, res)=>{
-    const contact = await getContacts()
-    console.log(contact)
-    res.send(`query: ${JSON.stringify(contact)}`)
-})
-
+getContacts()
+.then(console.log);
 
 // Run server
 app.listen(port, () => {

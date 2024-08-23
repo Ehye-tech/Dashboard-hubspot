@@ -40,7 +40,7 @@ const header = {
 async function getAllContacts() {
   try {
     const endPoint = `${process.env.ENDPOINT}${process.env.CONTACT_PATH}`
-    
+    // console.log(`[getAllContacts func]: endPoint: ${endPoint}`)
     let domainMap = {};
     const res = await axios.get(
       `${endPoint}`,
@@ -48,6 +48,7 @@ async function getAllContacts() {
         headers: header,
       }
     );
+    // console.log(`[getAllContacts func]: res: ${res}`)
     
     const result = res.data.results;
     result.forEach((element) => {

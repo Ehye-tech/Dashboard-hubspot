@@ -6,7 +6,6 @@
   <title>Bangbang Data Visualization</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  
 </head>
 <body>
   <h1>Bangbang Data</h1>
@@ -14,6 +13,8 @@
     <canvas id="myChart"></canvas>
   </div>
   <script>
+    // Assuming you have a script tag for Chart.js and a div with the id 'chart-container'
+
 fetch('http://localhost:3030/contacts/')
   .then(response => response.json())
   .then(data => {
